@@ -1,0 +1,1 @@
+{"file":"app.vue.mjs","mappings":";;;;AAAA,SAAA,eAAA,MAAA,OAAA,SAAA,QAAA;;;;;;;;;;","names":[],"sources":["../../../app.vue"],"sourcesContent":["<template>\n  <div>\n    <h1>Welcome to My Nuxt App</h1>\n    <p>This is my custom page.</p>\n  </div>\n</template>\n\n"],"version":3}

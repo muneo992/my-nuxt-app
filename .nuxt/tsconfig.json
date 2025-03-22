@@ -95,11 +95,14 @@
       "#vue-router": [
         "../node_modules/vue-router"
       ],
+      "#unhead/composables": [
+        "../node_modules/nuxt/dist/head/runtime/composables/v3"
+      ],
       "#imports": [
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/e522e6b3-2f28-4796-a056-e69264a42ed9.json"
+        "./manifest/meta/d32ab7f7-5f94-4595-ad1b-6d48717a6311.json"
       ],
       "#components": [
         "./components"
