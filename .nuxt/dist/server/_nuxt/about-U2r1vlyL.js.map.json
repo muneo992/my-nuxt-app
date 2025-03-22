@@ -1,0 +1,1 @@
+{"file":"about-U2r1vlyL.js","mappings":";;;;;;;;;;;;;;;AAAA,SAAA,eAAA,MAAA,OAAA,SAAA,QAAA;;;;;;;;;;","names":[],"sources":["../../../../pages/about.vue"],"sourcesContent":["<script setup lang=\"ts\"></script>\n\n<template>\n  <div>\n    Page: about\n  </div>\n</template>\n\n<style scoped></style>\n"],"version":3}
