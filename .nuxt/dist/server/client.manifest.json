@@ -23,7 +23,9 @@
       "node_modules/nuxt/dist/app/entry.js",
       "_Tb2zeSQp.js"
     ],
-    "css": []
+    "css": [
+      "error-404.C3V-3Mc4.css"
+    ]
   },
   "error-404.C3V-3Mc4.css": {
     "file": "error-404.C3V-3Mc4.css",
@@ -44,7 +46,9 @@
       "node_modules/nuxt/dist/app/entry.js",
       "_Tb2zeSQp.js"
     ],
-    "css": []
+    "css": [
+      "error-500.dGVH929u.css"
+    ]
   },
   "error-500.dGVH929u.css": {
     "file": "error-500.dGVH929u.css",

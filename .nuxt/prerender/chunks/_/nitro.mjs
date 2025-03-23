@@ -607,7 +607,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "e75f8c97-9ae9-4e79-98f6-e847e3ee7852",
+    "buildId": "c03ec114-eb5c-44b4-9b67-9f71ed90ae3d",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -1014,7 +1014,7 @@ const _MV_PfO = eventHandler((event) => {
   return readAsset(id);
 });
 
-const _lazy_MJ1FLV = () => import('./renderer.mjs').then(function (n) { return n.r; });
+const _lazy_MJ1FLV = () => import('./renderer.mjs');
 
 const handlers = [
   { route: '', handler: _MV_PfO, lazy: false, middleware: true, method: undefined },
