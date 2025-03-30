@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   generate: {
     dir: 'dist', // 出力先ディレクトリ
     routes: [
-      '/admin', // 必要なルートを追加
+      '/', // 必要なルートを追加
     ],
     fallback: true, // SPA モードで動作させるための 404.html を生成
   },
