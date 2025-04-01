@@ -11,5 +11,26 @@ export default defineNuxtConfig({
     ],
     fallback: true, // SPA モードで動作させるための 404.html を生成
   },
+
+  // アプリケーション全体のベースURLを設定
+  app: {
+    baseURL: '/', // 必要に応じて変更（例: '/my-app/'）
+  },
+
+  // Hooksを使って `_redirects` ファイルを生成
+  hooks: {
+    'nitro:config'(nitro) {
+      if (!nitro.options.publicAssets) nitro.options.publicAssets = [];
+      nitro.options.publicAssets.push({
+        dir: './public', // publicフォルダを使用
+        baseURL: '/',
+      });
+    },
+    'build:done'() {
+      const fs = require('fs');
+      const redirects = '/*    /index.html   200\n';
+      fs.writeFileSync('./dist/_redirects', redirects);
+    },
+  },
 });
 
