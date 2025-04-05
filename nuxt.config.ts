@@ -32,5 +32,12 @@ export default defineNuxtConfig({
       fs.writeFileSync('./dist/_redirects', redirects);
     },
   },
-});
 
+  // プラグインを設定（Auth0）
+  plugins: ['~/plugins/auth0.js'],
+
+  // ルーターのミドルウェアを設定
+  router: {
+    middleware: ['auth'],
+  },
+});
