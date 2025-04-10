@@ -1,1 +1,0 @@
-import{_ as t,t as n,x as o,v as r}from"./CHkqGbJn.js";const s={};function c(a,e){return r(),n("div",null,e[0]||(e[0]=[o("h1",null,"Welcome to My Nuxt App",-1)]))}const _=t(s,[["render",c]]);export{_ as default};
