@@ -26,7 +26,7 @@ import { readFile } from 'node:fs/promises';
 import consola, { consola as consola$1 } from 'file://C:/Users/glori/my-nuxt-app/node_modules/consola/dist/index.mjs';
 import { ErrorParser } from 'file://C:/Users/glori/my-nuxt-app/node_modules/youch-core/build/index.js';
 import { Youch } from 'file://C:/Users/glori/my-nuxt-app/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file://C:/Users/glori/my-nuxt-app/node_modules/source-map/source-map.js';
+import { SourceMapConsumer } from 'file://C:/Users/glori/my-nuxt-app/node_modules/nitropack/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
 import { getContext } from 'file://C:/Users/glori/my-nuxt-app/node_modules/unctx/dist/index.mjs';
 import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/glori/my-nuxt-app/node_modules/errx/dist/index.js';
@@ -642,7 +642,11 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {}
+  "public": {},
+  "private": {
+    "adminUsername": "admin",
+    "adminPassword": "securepassword"
+  }
 };
 const envOptions = {
   prefix: "NITRO_",
