@@ -19,13 +19,7 @@ import { useFetch } from '@nuxt/content'
 const { data: cars } = await useFetch(() => $fetch('/api/cars'))
 </script>
 ```
-template>
-  <div class="home-page">
-    <h1>Welcome to My Nuxt App</h1>
-    <p>This is the homepage.</p>
-    <nuxt-link to="/login">Go to Login</nuxt-link>
-  </div>
-</template>
+
 
 
 
