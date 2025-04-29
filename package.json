@@ -14,6 +14,7 @@
     "@nuxt/content": "^3.3.0",
     "@nuxtjs/auth-next": "^5.0.0-1667386184.dfbbb54",
     "@nuxtjs/axios": "^5.13.6",
+    "ajv": "^8.17.1",
     "auth0-js": "^9.28.0",
     "dotenv": "^16.4.7",
     "netlify-cms-app": "^2.15.72",

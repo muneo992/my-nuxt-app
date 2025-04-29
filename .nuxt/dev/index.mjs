@@ -18,8 +18,9 @@ import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingP
 import { createHooks } from 'file://C:/Users/glori/my-nuxt-app/node_modules/hookable/dist/index.mjs';
 import { createFetch, Headers as Headers$1 } from 'file://C:/Users/glori/my-nuxt-app/node_modules/ofetch/dist/node.mjs';
 import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://C:/Users/glori/my-nuxt-app/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://C:/Users/glori/my-nuxt-app/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://C:/Users/glori/my-nuxt-app/node_modules/unstorage/drivers/fs.mjs';
+import { prefixStorage } from 'file://C:/Users/glori/my-nuxt-app/node_modules/nitropack/node_modules/unstorage/dist/index.mjs';
+import { createStorage } from 'file://C:/Users/glori/my-nuxt-app/node_modules/nuxt/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://C:/Users/glori/my-nuxt-app/node_modules/nuxt/node_modules/unstorage/drivers/fs.mjs';
 import { digest } from 'file://C:/Users/glori/my-nuxt-app/node_modules/ohash/dist/index.mjs';
 import { toRouteMatcher, createRouter } from 'file://C:/Users/glori/my-nuxt-app/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
@@ -1006,7 +1007,7 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const __nwPlIcFwUjNHonRXfDcqPgL1hol0sG2yHjCcPsS1WA = (function(nitro) {
+const _rMCq8AFxmaTFSTLJqRd7DiKcIHSCT91rfmgxv90NeE = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
@@ -1101,7 +1102,7 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  __nwPlIcFwUjNHonRXfDcqPgL1hol0sG2yHjCcPsS1WA,
+  _rMCq8AFxmaTFSTLJqRd7DiKcIHSCT91rfmgxv90NeE,
 _4TLL26TfhBPFY9yzUzOfFPG8UAY1VzhgQq9S7HoDico
 ];
 
@@ -1140,6 +1141,8 @@ function createNitroApp() {
       const fetchContext = event.node.req?.__unenv__;
       if (fetchContext?._platform) {
         event.context = {
+          _platform: fetchContext?._platform,
+          // #3335
           ...fetchContext._platform,
           ...event.context
         };
