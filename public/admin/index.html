@@ -9,26 +9,5 @@
      </html>
      ```
 
-   - **`/public/admin/config.yml`**：
-     ```yaml
-     backend:
-       name: git
-       repo: your-username/your-repo-name # GitHubリポジトリ
-       branch: main # 使用するブランチ
-
-     media_folder: "static/images/uploads" # 画像のアップロード先
-     public_folder: "/images/uploads"
-
-     collections:
-       - name: "cars"
-         label: "Cars"
-         folder: "content/cars"
-         create: true
-         fields:
-           - { name: "title", label: "Title", widget: "string" }
-           - { name: "price", label: "Price", widget: "number" }
-           - { name: "year", label: "Year", widget: "number" }
-           - { name: "mileage", label: "Mileage", widget: "number" }
-           - { name: "image", label: "Image", widget: "image" }
-           - { name: "description", label: "Description", widget: "markdown" }
+  
 

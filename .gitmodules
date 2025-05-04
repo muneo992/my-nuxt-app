@@ -1,0 +1,3 @@
+[submodule "nuxt-auth0-github"]
+	path = nuxt-auth0-github
+	url = https://github.com/muneo992/nuxt-auth0-github.git
