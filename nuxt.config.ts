@@ -1,5 +1,4 @@
-// ファイルのトップレベルで必要なモジュールをインポート
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
 
 export default defineNuxtConfig({
   // サーバーサイドレンダリングを無効化（静的サイト生成モードにする）
@@ -24,41 +23,41 @@ export default defineNuxtConfig({
   hooks: {
     // Nitroの設定を拡張
     'nitro:config'(nitro) {
-      // publicAssetsがundefinedの場合に初期化
-      nitro.options = nitro.options || {}; // nitro.optionsが存在しない場合に初期化
-      nitro.options.publicAssets = nitro.options.publicAssets || []; // publicAssetsが存在しない場合に初期化
-      
-      // publicフォルダを追加
+      nitro.options.publicAssets = nitro.options.publicAssets || [];
       nitro.options.publicAssets.push({
-        dir: 'public', // publicフォルダを使用
-        baseURL: '/', // ベースURLを設定
+        dir: 'public',
+        baseURL: '/',
       });
     },
 
     // ビルド完了後に `_redirects` ファイルを生成
     'build:done'() {
+      const distDir = './dist';
+      if (!existsSync(distDir)) {
+        mkdirSync(distDir);
+      }
       const redirects = '/*    /index.html   200\n';
-      writeFileSync('./dist/_redirects', redirects);
+      writeFileSync(`${distDir}/_redirects`, redirects);
     },
   },
 
   // プラグインを設定（Auth0）
   plugins: ['~/plugins/auth0.js'],
 
-  // ルーターのミドルウェアを設定
-  router: {
-    middleware: ['auth'],
-  },
-
   // 環境変数の設定
   runtimeConfig: {
     public: {}, // 公開設定（必要に応じて追加）
     private: {
-      adminUsername: process.env.ADMIN_USERNAME, // 管理者のユーザー名
-      adminPassword: process.env.ADMIN_PASSWORD, // 管理者のパスワード
+      adminUsername: process.env.ADMIN_MUNEO, // 管理者のユーザー名
+      adminPassword: process.env.ADMIN_816 // 管理者のパスワード
     },
   },
 
+  // ミドルウェアの登録
+  router: {
+    middleware: ['auth'], // ここでミドルウェアを登録
+  },
+
+  // 互換性のある日付を指定
   compatibilityDate: '2025-04-06',
 });
-target: 'static'
