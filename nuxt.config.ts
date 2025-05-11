@@ -1,63 +1,62 @@
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 
 export default defineNuxtConfig({
-  // サーバーサイドレンダリングを無効化（静的サイト生成モードにする）
+  // **SSRの設定**: falseにすることでクライアントサイドレンダリング（CSR）を有効化
   ssr: false,
 
-  // 静的サイト生成時の設定
+  // **静的サイト生成のルート設定**
   generate: {
-    dir: 'dist', // 出力先ディレクトリ
-    routes: [
-      '/', // 必要なルートを追加
-      '/admin', // /admin ページを静的に生成
-    ],
-    fallback: '404.html', // SPAモード用の404.htmlを生成
+    routes: ['/', '/admin'], // 必要なルートを指定
   },
 
-  // アプリケーション全体のベースURLを設定
-  app: {
-    baseURL: '/', // 必要に応じて変更（例: '/my-app/'）
-  },
+  // **Nitroの設定**
+  nitro: {
+    // 推奨される互換性日付を設定
+    compatibilityDate: '2025-05-09',
 
-  // Hooksを使ってNitroとビルド後処理を設定
-  hooks: {
-    // Nitroの設定を拡張
-    'nitro:config'(nitro) {
-      nitro.options.publicAssets = nitro.options.publicAssets || [];
-      nitro.options.publicAssets.push({
-        dir: 'public',
-        baseURL: '/',
-      });
+    // 出力先ディレクトリを指定
+    output: {
+      publicDir: 'dist',
     },
 
-    // ビルド完了後に `_redirects` ファイルを生成
+    // パブリックアセットの設定
+    publicAssets: [
+      {
+        dir: 'public', // 静的ファイルのディレクトリ
+        baseURL: '/',  // ベースURL
+      },
+    ],
+  },
+
+  // **Hooksの設定**: ビルド後にリダイレクトファイルを生成
+  hooks: {
     'build:done'() {
       const distDir = './dist';
-      if (!existsSync(distDir)) {
-        mkdirSync(distDir);
+      try {
+        // 出力ディレクトリが存在しない場合は作成
+        if (!existsSync(distDir)) {
+          mkdirSync(distDir);
+        }
+
+        // `_redirects` ファイルを生成
+        const redirects = '/*    /index.html   200\n';
+        writeFileSync(`${distDir}/_redirects`, redirects);
+      } catch (error) {
+        console.error('Error generating _redirects file:', error);
       }
-      const redirects = '/*    /index.html   200\n';
-      writeFileSync(`${distDir}/_redirects`, redirects);
     },
   },
 
-  // プラグインを設定（Auth0）
+  // **プラグインの設定**
   plugins: ['~/plugins/auth0.js'],
 
-  // 環境変数の設定
+  // **ランタイム設定**
   runtimeConfig: {
-    public: {}, // 公開設定（必要に応じて追加）
+    public: {}, // 公開設定（クライアントで使用可能）
     private: {
-      adminUsername: process.env.ADMIN_MUNEO, // 管理者のユーザー名
-      adminPassword: process.env.ADMIN_816 // 管理者のパスワード
+      adminUsername: process.env.ADMIN_MUNEO, // 環境変数から取得
+      adminPassword: process.env.ADMIN_816,   // 環境変数から取得
     },
   },
-
-  // ミドルウェアの登録
-  router: {
-    middleware: ['auth'], // ここでミドルウェアを登録
-  },
-
-  // 互換性のある日付を指定
-  compatibilityDate: '2025-04-06',
 });
+
