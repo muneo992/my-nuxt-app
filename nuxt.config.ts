@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   // **Nitroの設定**
   nitro: {
     // 推奨される互換性日付を設定
-    compatibilityDate: '2025-05-09',
+    compatibilityDate: '2025-05-16',
 
     // 出力先ディレクトリを指定
     output: {

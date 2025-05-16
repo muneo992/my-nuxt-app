@@ -814,7 +814,7 @@ function hasReqHeader(event, name, includes) {
 }
 
 const errorHandler$0 = (async function errorhandler(error, event, { defaultHandler }) {
-  if (isJsonRequest(event)) {
+  if (event.handled || isJsonRequest(event)) {
     return;
   }
   const defaultRes = await defaultHandler(error, event, { json: true });

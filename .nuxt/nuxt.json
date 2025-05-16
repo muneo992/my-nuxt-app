@@ -1,9 +1,9 @@
 {
-  "_hash": "-rZoFjDV01mmJE9l9OWyYyplneGxSVSgqZmp-JViEaQ",
+  "_hash": "gGOpZvB-NELg8L1n8KcLK-K8jVpHotfqGSLBKDI8-2w",
   "project": {
     "rootDir": "/workspaces/my-nuxt-app"
   },
   "versions": {
-    "nuxt": "3.17.1"
+    "nuxt": "3.17.3"
   }
 }
