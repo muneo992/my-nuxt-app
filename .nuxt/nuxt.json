@@ -1,7 +1,7 @@
 {
-  "_hash": "cJiNtiU4KCRjMIPp5eVo42wUAEDnZpZEZSVgyFXb4jM",
+  "_hash": "-rZoFjDV01mmJE9l9OWyYyplneGxSVSgqZmp-JViEaQ",
   "project": {
-    "rootDir": "C:/Users/glori/my-nuxt-app"
+    "rootDir": "/workspaces/my-nuxt-app"
   },
   "versions": {
     "nuxt": "3.17.1"
