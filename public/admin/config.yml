@@ -1,12 +1,14 @@
 backend:
-  name: git
-  repo: your-username/your-repo-name # GitHubリポジトリ
+  name: github
+  repo: muneo992/my-nuxt-app # リポジトリのパス (例: "your-username/your-repo")
   branch: main # 使用するブランチ
-name: git-gateway
-  branch: main # 使用するブランチ
+  auth_scope: repo # 必要なスコープを指定 (デフォルトは "repo" スコープ)
 
-media_folder: "static/images/uploads" # 画像のアップロード先
-public_folder: "/images/uploads"
+site_url: https://nuxt253.netlify.app # Netlify サイトの URL
+logo_url: https://nuxt253.netlify.app/images/logo.png # ロゴ画像の URL (任意)
+
+media_folder: "static/images/uploads" # アップロードされた画像の保存先
+public_folder: "/images/uploads" # 公開 URL パス
 
 collections:
   - name: "cars"
@@ -14,6 +16,7 @@ collections:
     folder: "content/cars"
     format: 'frontmatter' 
     create: true
+    slug: "{{slug}}"
     fields:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "price", label: "Price", widget: "number" }
