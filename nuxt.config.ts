@@ -49,6 +49,11 @@ export default defineNuxtConfig({
 
   // **プラグインの設定**
   plugins: ['~/plugins/auth0.js'],
+  
+  modules: ['@nuxt/content'],
+  content: {
+    // 必要に応じて設定を追加
+  },
 
   // **ランタイム設定**
   runtimeConfig: {
