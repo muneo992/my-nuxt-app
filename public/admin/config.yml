@@ -1,26 +1,23 @@
 backend:
   name: github
-  repo: muneo992/my-nuxt-app # リポジトリのパス (例: "your-username/your-repo")
-  branch: main # 使用するブランチ
-  auth_scope: repo # 必要なスコープを指定 (デフォルトは "repo" スコープ)
+  repo: muneo992/my-nuxt-app  # リポジトリ名 (例: user/repo)
+  branch: main                      # 管理するブランチ
+  auth_scope: repo                  # 必要な権限スコープ
 
-site_url: https://nuxt253.netlify.app # Netlify サイトの URL
-logo_url: https://nuxt253.netlify.app/images/logo.png # ロゴ画像の URL (任意)
-
-media_folder: "static/images/uploads" # アップロードされた画像の保存先
-public_folder: "/images/uploads" # 公開 URL パス
+media_folder: "public/uploads"      # メディアファイルの保存先
+public_folder: "/uploads"           # メディアファイルの公開URL
 
 collections:
   - name: "cars"
     label: "Cars"
-    folder: "content/cars"
-    format: 'frontmatter' 
+    folder: "content/cars"          # 車データを保存するフォルダ
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.manufacturer}}-{{fields.model}}"
     fields:
-      - { name: "title", label: "Title", widget: "string" }
+      - { name: "manufacturer", label: "Manufacturer", widget: "string" }
+      - { name: "model", label: "Model", widget: "string" }
       - { name: "price", label: "Price", widget: "number" }
       - { name: "year", label: "Year", widget: "number" }
-      - { name: "mileage", label: "Mileage", widget: "number" }
+      - { name: "mileage", label: "Mileage (km)", widget: "number" }
+      - { name: "description", label: "Description", widget: "text" }
       - { name: "image", label: "Image", widget: "image" }
-      - { name: "description", label: "Description", widget: "markdown" }
